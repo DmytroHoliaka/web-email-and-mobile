@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Lab 3</title>
+
+        <style type="text/css">
+            body {
+                margin: 0;
+                background-color: #cccccc;
+            }
+            table {
+                border-spacing: 0;
+            }
+            td {
+                padding: 0;
+            }
+            tbody {
+                height: 100%;
+            }
+            img {
+                border: 0;
+            }
+            .wrapper {
+                width: 100%;
+                table-layout: fixed;
+                background-color: #cccccc;
+            }
+            .main {
+                background-color: #ffffff;
+                margin: 0 auto;
+                width: 100%;
+                max-width: 1080px;
+
+                height: 100vh;
+
+                border-spacing: 0;
+                font-family: sans-serif;
+                color: #171a1b;
+            }
+            .two-columns {
+                text-align: center;
+                font-size: 0;
+
+                height: 100%;
+            }
+            .two-columns .left-column {
+                width: 100%;
+                max-width: 780px;
+
+                height: 60vh;
+                max-height: 100%;
+
+                display: inline-block;
+                vertical-align: top;
+                text-align: center;
+
+                box-sizing: border-box;
+            }
+            .two-columns .right-column {
+                width: 100%;
+                max-width: 300px;
+
+                height: 60vh;
+                max-height: 100%;
+
+                display: inline-block;
+                vertical-align: top;
+                text-align: center;
+
+                box-sizing: border-box;
+                border: 1px solid rgb(62, 71, 105);
+            }
+
+            .inside-two-columns {
+                text-align: center;
+                font-size: 0;
+
+                height: 100%;
+                max-height: 100%;
+            }
+
+            .inside-two-columns .inside-left-column {
+                font-size: 0px;
+
+                width: 300px;
+                max-width: 100%;
+
+                height: 52vh;
+                max-height: 100%;
+
+                display: inline-block;
+                vertical-align: top;
+                text-align: center;
+
+                box-sizing: border-box;
+
+                border: 1px solid rgb(62, 71, 105);
+            }
+            .inside-two-columns .inside-right-column {
+                font-size: 0px;
+
+                width: 478px;
+                max-width: 100%;
+
+                height: 52vh;
+                max-height: 100%;
+
+                display: inline-block;
+                vertical-align: top;
+                text-align: center;
+
+                box-sizing: border-box;
+            }
+            .two-row {
+                font-size: 0;
+
+                width: 100%;
+                max-width: 100%;
+
+                height: 100%;
+                max-height: 100%;
+                box-sizing: border-box;
+            }
+            .top-row {
+                font-size: 12px;
+                width: 100%;
+                max-width: 100%;
+
+                height: 52vh;
+                max-height: 100%;
+
+                box-sizing: border-box;
+            }
+            .bottom-row {
+                font-size: 0px;
+
+                width: 100%;
+                max-width: 100%;
+
+                height: 8vh;
+                max-height: 100%;
+
+                box-sizing: border-box;
+
+                border: 1px solid rgb(62, 71, 105);
+            }
+            .content-two-row {
+                font-size: 0px;
+
+                width: 478px;
+                max-width: 100%;
+            }
+            .content-two-row .first-row {
+                font-size: 0px;
+
+                width: 100%;
+                max-width: 100%;
+
+                height: 8vh;
+                max-height: 100%;
+
+                border: 1px solid rgb(62, 71, 105);
+            }
+            .content-two-row .second-row {
+                font-size: 0px;
+
+                width: 100%;
+                max-width: 100%;
+
+                height: 44vh;
+                max-height: 100%;
+
+                border: 1px solid rgb(62, 71, 105);
+            }
+
+            .top-content {
+                font-size: 18px;
+                color: rgb(62, 71, 105);
+            }
+            .aside-left {
+                font-size: 0;
+            }
+            .aside-title {
+                font-size: 16px;
+                padding-top: 16px;
+                color: rgb(62, 71, 105);
+            }
+            .left-aside-list {
+                font-size: 14px;
+                padding: 0px 40px;
+                text-align: left;
+            }
+
+            .left-aside-list li {
+                padding-top: 5px;
+            }
+            .bottom-main-content {
+                font-size: 16px;
+                text-align: left;
+                padding-left: 5px;
+            }
+            .right-aside-list {
+                font-size: 14px;
+                padding: 10px 40px;
+                text-align: left;
+            }
+
+            .right-aside-list li {
+                padding-top: 5px;
+            }
+            .header-td {
+                font-size: 0px;
+                border: 1px solid rgb(62, 71, 105);
+                height: 20vh;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            .two-row-table {
+                border: 1px solid rgb(62, 71, 105);
+                width: 780px;
+            }
+            .second-row-td {
+                text-align: left;
+                vertical-align: top;
+                padding: 20px 40px 20px 40px;
+                font-size: 14px;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            .right-column-td {
+                height: 60vh;
+                font-size: 12px;
+                box-sizing: border-box;
+                vertical-align: text-top;
+            }
+            .footer-td {
+                font-size: 0px;
+                border: 1px solid rgb(62, 71, 105);
+                height: 20vh;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            .image-table {
+                width: 100%;
+                height: 100%;
+            }
+            .image-table td {
+                position: relative;
+            }
+            .image-text-header {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -100%);
+                color: white;
+                width: 80%;
+                text-align: right;
+                font-size: 25px;
+            }
+            .image-text-footer {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-46%, -100%);
+                color: white;
+                width: 80%;
+                text-align: right;
+                font-size: 25px;
+            }
+            .main-img-container {
+                text-align: center;
+                height: 40vh;
+                padding-top: 2%;
+            }
+            .main-img {
+                max-width: 100%;
+                max-height: 100%;
+                border-radius: 5%;
+
+                display: inline-block;
+                vertical-align: center;
+            }
+            .footer-div {
+                font-size: 25px;
+                color: white;
+                text-align: right;
+                padding-right: 15%;
+                font-size: 0;
+            }
+            .header-div {
+                font-size: 25px;
+                color: white;
+                text-align: right;
+                padding-right: 10%;
+            }
+
+            @media (max-width: 1080px) {
+                body {
+                    margin: 0;
+                    background-color: #cccccc;
+                }
+                table {
+                    border-spacing: 0;
+                }
+                td {
+                    padding: 0;
+                }
+                tbody {
+                    height: 100%;
+                }
+                img {
+                    border: 0;
+                }
+                .wrapper {
+                    width: 100%;
+                    table-layout: fixed;
+                    background-color: #cccccc;
+                }
+                .main {
+                    background-color: #ffffff;
+                    margin: 0 auto;
+                    width: 0;
+
+                    height: 100vh;
+
+                    border-spacing: 0;
+                    font-family: sans-serif;
+                    color: #171a1b;
+                }
+                .two-columns {
+                    text-align: center;
+                    font-size: 0;
+
+                    height: 100%;
+                }
+                .two-columns .left-column {
+                    width: 100%;
+                    max-width: 780px;
+
+                    height: 60vh;
+                    max-height: 100%;
+
+                    display: inline-block;
+                    vertical-align: top;
+                    text-align: center;
+
+                    box-sizing: border-box;
+                }
+                .two-columns .right-column {
+                    width: 100%;
+                    max-width: 780px;
+
+                    height: 60vh;
+                    max-height: 100%;
+
+                    display: inline-block;
+                    vertical-align: top;
+                    text-align: center;
+
+                    box-sizing: border-box;
+                    border: 1px solid rgb(62, 71, 105);
+                }
+
+                .inside-two-columns {
+                    text-align: center;
+                    font-size: 0;
+
+                    height: 100%;
+                    max-height: 100%;
+                }
+
+                .inside-two-columns .inside-left-column {
+                    font-size: 0px;
+
+                    width: 300px;
+                    max-width: 100%;
+
+                    height: 52vh;
+                    max-height: 100%;
+
+                    display: inline-block;
+                    vertical-align: top;
+                    text-align: center;
+
+                    box-sizing: border-box;
+
+                    border: 1px solid rgb(62, 71, 105);
+                }
+                .inside-two-columns .inside-right-column {
+                    font-size: 0px;
+
+                    width: 478px;
+                    max-width: 100%;
+
+                    height: 52vh;
+                    max-height: 100%;
+
+                    display: inline-block;
+                    vertical-align: top;
+                    text-align: center;
+
+                    box-sizing: border-box;
+                }
+                .two-row {
+                    font-size: 0;
+
+                    width: 100%;
+                    max-width: 100%;
+
+                    height: 100%;
+                    max-height: 100%;
+                    box-sizing: border-box;
+                }
+                .top-row {
+                    font-size: 12px;
+                    width: 100%;
+                    max-width: 100%;
+
+                    height: 52vh;
+                    max-height: 100%;
+
+                    box-sizing: border-box;
+                }
+                .bottom-row {
+                    font-size: 0px;
+
+                    width: 100%;
+                    max-width: 100%;
+
+                    height: 8vh;
+                    max-height: 100%;
+
+                    box-sizing: border-box;
+
+                    border: 1px solid rgb(62, 71, 105);
+                }
+                .content-two-row {
+                    font-size: 0px;
+
+                    width: 478px;
+                    max-width: 100%;
+                }
+                .content-two-row .first-row {
+                    font-size: 0px;
+
+                    width: 100%;
+                    max-width: 100%;
+
+                    height: 8vh;
+                    max-height: 100%;
+
+                    border: 1px solid rgb(62, 71, 105);
+                }
+                .content-two-row .second-row {
+                    font-size: 0px;
+
+                    width: 100%;
+                    max-width: 100%;
+
+                    height: 44vh;
+                    max-height: 100%;
+
+                    border: 1px solid rgb(62, 71, 105);
+                }
+
+                .top-content {
+                    font-size: 18px;
+                    color: rgb(62, 71, 105);
+                }
+                .aside-left {
+                    font-size: 0;
+                }
+                .aside-title {
+                    font-size: 16px;
+                    padding-top: 16px;
+                    color: rgb(62, 71, 105);
+                }
+                .left-aside-list {
+                    font-size: 14px;
+                    padding: 0px 40px;
+                    text-align: left;
+                }
+
+                .left-aside-list li {
+                    padding-top: 5px;
+                }
+                .bottom-main-content {
+                    font-size: 16px;
+                    text-align: left;
+                    padding-left: 5px;
+                }
+                .right-aside-list {
+                    font-size: 14px;
+                    padding: 10px 40px;
+                    text-align: left;
+                }
+
+                .right-aside-list li {
+                    padding-top: 5px;
+                }
+                .header-td {
+                    font-size: 0px;
+                    border: 1px solid rgb(62, 71, 105);
+                    height: 20vh;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+                .two-row-table {
+                    border: 1px solid rgb(62, 71, 105);
+                    width: 780px;
+                }
+                .second-row-td {
+                    text-align: left;
+                    vertical-align: top;
+                    padding: 20px 40px 20px 40px;
+                    font-size: 14px;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+                .right-column-td {
+                    height: 60vh;
+                    font-size: 12px;
+                    box-sizing: border-box;
+                    vertical-align: text-top;
+                }
+                .footer-td {
+                    font-size: 0px;
+                    border: 1px solid rgb(62, 71, 105);
+                    height: 20vh;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+
+                .image-table {
+                    width: 100%;
+                    height: 100%;
+                }
+                .image-table td {
+                    position: relative;
+                }
+                .image-text-header {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -100%);
+                    color: white;
+                    width: 80%;
+                    text-align: right;
+                    font-size: 25px;
+                }
+                .image-text-footer {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-46%, -100%);
+                    color: white;
+                    width: 80%;
+                    text-align: right;
+                    font-size: 25px;
+                }
+                .main-img-container {
+                    text-align: center;
+                    height: 40vh;
+                    padding-top: 2%;
+                }
+                .main-img {
+                    max-width: 100%;
+                    max-height: 100%;
+                    border-radius: 5%;
+
+                    display: inline-block;
+                    vertical-align: center;
+                }
+                .footer-div {
+                    font-size: 25px;
+                    color: white;
+                    text-align: right;
+                    padding-right: 15%;
+                    font-size: 0;
+                }
+                .header-div {
+                    font-size: 25px;
+                    color: white;
+                    text-align: right;
+                    padding-right: 10%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <center class="wrapper">
+            <table class="main" width="100%">
+                <!-- HEADER -->
+                <tr>
+                    <td class="header-td">
+                        <table
+                            style="
+                                width: 100%;
+                                height: 100%;
+                                border-spacing: 0;
+                                box-sizing: border-box;
+                                background-color: rgb(62, 71, 105);
+                            "
+                        >
+                            <tr>
+                                <td style="padding: 0; box-sizing: border-box">
+                                    <div class="header-div">
+                                        <h2 style="font-size: 25px">
+                                            <i>Lab #3</i>
+                                        </h2>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <!-- MAIN BLOCK -->
+                <tr>
+                    <td>
+                        <table width="100%" height="100%">
+                            <tr>
+                                <td class="two-columns">
+                                    <table
+                                        class="left-column"
+                                        width="100%"
+                                        height="100%"
+                                    >
+                                        <tr>
+                                            <td class="two-row">
+                                                <table class="two-row-table">
+                                                    <tr>
+                                                        <td class="top-row">
+                                                            <table width="100%">
+                                                                <tr>
+                                                                    <td
+                                                                        class="inside-two-columns"
+                                                                    >
+                                                                        <table
+                                                                            class="inside-left-column"
+                                                                            width="100%"
+                                                                        >
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <table
+                                                                                        class="aside-left"
+                                                                                    >
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <h2
+                                                                                                    class="aside-title"
+                                                                                                >
+                                                                                                    <i
+                                                                                                        >Why
+                                                                                                        should
+                                                                                                        you
+                                                                                                        choose
+                                                                                                        us?</i
+                                                                                                    >
+                                                                                                </h2>
+                                                                                            </td>
+                                                                                        </tr>
+
+                                                                                        <tr>
+                                                                                            <td
+                                                                                                class="left-aside-list"
+                                                                                            >
+                                                                                                <ol>
+                                                                                                    <li>
+                                                                                                        Wide
+                                                                                                        range
+                                                                                                        of
+                                                                                                        products;
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        High
+                                                                                                        quality
+                                                                                                        products;
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        Competitive
+                                                                                                        Prices;
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        Convenient
+                                                                                                        service
+                                                                                                        and
+                                                                                                        maintenance;
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        Convenience
+                                                                                                        of
+                                                                                                        online
+                                                                                                        shopping;
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        Privileges
+                                                                                                        and
+                                                                                                        loyalty
+                                                                                                        programs;
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        Fast
+                                                                                                        delivery
+                                                                                                        and
+                                                                                                        reliable
+                                                                                                        support
+                                                                                                        service;
+                                                                                                    </li>
+                                                                                                    <li>
+                                                                                                        Innovative
+                                                                                                        solutions
+                                                                                                        and
+                                                                                                        the
+                                                                                                        latest
+                                                                                                        technologies.
+                                                                                                    </li>
+                                                                                                </ol>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </table>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+
+                                                                        <table
+                                                                            class="inside-right-column"
+                                                                            width="100%"
+                                                                        >
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <table
+                                                                                        width="100%"
+                                                                                    >
+                                                                                        <tr>
+                                                                                            <td
+                                                                                                class="content-two-row"
+                                                                                            >
+                                                                                                <table
+                                                                                                    class="first-row"
+                                                                                                >
+                                                                                                    <tr>
+                                                                                                        <td>
+                                                                                                            <h1
+                                                                                                                class="top-content"
+                                                                                                            >
+                                                                                                                <i
+                                                                                                                    >Incredible
+                                                                                                                    discounts
+                                                                                                                    on
+                                                                                                                    the
+                                                                                                                    eve
+                                                                                                                    of
+                                                                                                                    Christmas</i
+                                                                                                                >
+                                                                                                            </h1>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </table>
+
+                                                                                                <table
+                                                                                                    class="second-row"
+                                                                                                >
+                                                                                                    <tr>
+                                                                                                        <td
+                                                                                                            class="second-row-td"
+                                                                                                        >
+                                                                                                            <div
+                                                                                                                class="main-img-container"
+                                                                                                            >
+                                                                                                                <img
+                                                                                                                    class="main-img"
+                                                                                                                    src="https://imageupload.io/ib/iTBaUL9z4xo9cA6_1697743206.jpg"
+                                                                                                                    alt="second-card.jpg"
+                                                                                                                />
+                                                                                                            </div>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </table>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </table>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="bottom-row">
+                                                            <a
+                                                                href="https://www.9news.com.au/national/how-to-get-up-to-16-days-off-over-christmas-with-seven-annual-leave-days-maximise-annual-leave-hacks/3f047209-e013-4dab-b215-339572087b5c"
+                                                                target="_blank"
+                                                            >
+                                                                <h3
+                                                                    class="bottom-main-content"
+                                                                >
+                                                                    Latest
+                                                                    news:&nbsp&nbsp&nbsp&nbspHow
+                                                                    to get up to
+                                                                    16 days off
+                                                                    over
+                                                                    Christmas
+                                                                    with as
+                                                                    little as
+                                                                    seven annual
+                                                                    leave days.
+                                                                </h3>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <table class="right-column" width="100%">
+                                        <tr>
+                                            <td class="right-column-td">
+                                                <table class="aside-left">
+                                                    <tr>
+                                                        <td>
+                                                            <h2
+                                                                class="aside-title"
+                                                            >
+                                                                <i
+                                                                    >Interesting
+                                                                    facts</i
+                                                                >
+                                                            </h2>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td
+                                                            class="right-aside-list"
+                                                        >
+                                                            <il>
+                                                                <li>
+                                                                    Rich
+                                                                    History: Our
+                                                                    company
+                                                                    boasts a
+                                                                    history of
+                                                                    over 50
+                                                                    years,
+                                                                    evolving
+                                                                    from a small
+                                                                    family
+                                                                    venture into
+                                                                    a global
+                                                                    leader. Our
+                                                                    unique
+                                                                    Christmas
+                                                                    ornaments
+                                                                    are a blend
+                                                                    of ancient
+                                                                    traditions
+                                                                    and modern
+                                                                    craftsmanship;
+                                                                </li>
+                                                                <li>
+                                                                    Worldwide
+                                                                    Reach: Our
+                                                                    Christmas
+                                                                    ornaments
+                                                                    are adored
+                                                                    not only in
+                                                                    the United
+                                                                    States but
+                                                                    across the
+                                                                    globe. They
+                                                                    find homes
+                                                                    in numerous
+                                                                    countries,
+                                                                    and we take
+                                                                    pride in our
+                                                                    diverse
+                                                                    international
+                                                                    customer
+                                                                    base.
+                                                                </li>
+                                                                <li>
+                                                                    Artisan
+                                                                    Collaboration:
+                                                                    We cherish
+                                                                    collaboration
+                                                                    with
+                                                                    artisans
+                                                                    worldwide
+                                                                    who employ
+                                                                    traditional
+                                                                    techniques
+                                                                    to handcraft
+                                                                    our
+                                                                    ornaments.
+                                                                    This
+                                                                    collaboration
+                                                                    maintains
+                                                                    the
+                                                                    authenticity
+                                                                    of our
+                                                                    products and
+                                                                    guarantees
+                                                                    exceptional
+                                                                    quality.
+                                                                </li>
+                                                            </il>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <!-- FOOTER -->
+                <tr>
+                    <td class="footer-td">
+                        <table
+                            style="border-spacing: 0; box-sizing: border-box"
+                            width="100%"
+                            height="100%"
+                        >
+                            <tr>
+                                <td
+                                    style="
+                                        box-sizing: border-box;
+                                        background-color: rgb(62, 71, 105);
+                                    "
+                                >
+                                    <div class="footer-div">
+                                        <h2 style="font-size: 25px">
+                                            <i>H.D.</i>
+                                        </h2>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </body>
+</html>
